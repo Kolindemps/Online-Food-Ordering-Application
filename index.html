@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyster Oasis - Seafood Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+              <div class="flex items-center">
+                <img src="images/image0 (1).png" alt="Oyster Oasis Logo" class="w-40  h- rounded-full object-cover" />
+                <h1 id="navTitle" class="ml-3 text-2xl font-bold text-white transition-colors duration-300">Oyster Oasis</h1>
+            </div>
+                <div class="flex items-center space-x-8">
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="#home" id="navLink1" class="text-white hover:text-teal-300 px-3 py-2 text-sm font-medium transition-colors duration-300">Menu</a>
+                        <a href="#about" id="navLink2" class="text-white hover:text-teal-300 px-3 py-2 text-sm font-medium transition-colors duration-300">About</a>
+                        <a href="#contact" id="navLink3" class="text-white hover:text-teal-300 px-3 py-2 text-sm font-medium transition-colors duration-300">Contact</a>
+                    </nav>
+                    
+                    <!-- Order Now Buttons -->
+                    <div class="flex items-center space-x-3">
+                        <button id="navOrderBtn"  class=" order-now-btn text-white hover:text-teal-300 px-4 py-2 text-sm font-medium border border-white rounded-lg hover:bg-white hover:text-teal-500 transition-all duration-300">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative  text-white py-60 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/Oysters.webp" 
+                 alt="Fresh Seafood" 
+                 class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/70 to-teal-600/70"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-left">
+                <h2 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">Fresh Seafood.</h2>
+                <h3 class="text-4xl md:text-6xl font-bold mb-8 text-white drop-shadow-lg">Soulful Flavor</h3>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">Experience the ocean's finest catch delivered fresh to your door from Oyster Oasis</p>
+                <button class="order-now-btn bg-white text-teal-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Order Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex relative" style="min-height: 700px;">
+          <div class="hidden md:block flex-shrink-0 mr-10 h-full">
+            <img src="images/Menu-text.svg" alt="Menu Side" class="h-full w-40 object-cover rounded-md" />
+          </div>
+          <div class="flex-1">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/appetizers.avif" alt="Appetizers" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">APPETIZERS</h4>
+                <p class="text-gray-600 text-left">Start your meal with our tasty appetizers.</p>
+              </div>
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/main_courses.webp" alt="Main Courses" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">MAIN COURSES</h4>
+                <p class="text-gray-600 text-left">Hearty and satisfying main dishes.</p>
+              </div>
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/seafood.jpg" alt="Seafood" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">SEAFOOD</h4>
+                <p class="text-gray-600 text-left">Fresh catch from the ocean.</p>
+              </div>
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/salads.jpg" alt="Salads" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">SALADS</h4>
+                <p class="text-gray-600 text-left">Crisp and refreshing salads.</p>
+              </div>
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/desserts.webp" alt="Desserts" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">DESSERTS</h4>
+                <p class="text-gray-600 text-left">Sweet treats to finish your meal.</p>
+              </div>
+              <div class="cursor-pointer group flex flex-col items-left">
+                <div class="relative w-full h-40">
+                  <img src="images/beverages.jpg" alt="Beverages" class="w-full h-full object-cover rounded-md" />
+                  <button onclick="location.href='dashboard.html'" 
+                    class="order-now-btn absolute inset-0 m-auto bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-2 text-sm font-semibold rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-max h-max">
+                    Order Now
+                  </button>
+                </div>
+                <h4 class="text-2xl font-semibold text-teal-500 mt-4 mb-2">BEVERAGES</h4>
+                <p class="text-gray-600 text-left">Refreshing drinks and cocktails.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Featured Item Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-br ">
+          <div class="text-center mb-12">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Today's Featured Catch</h2>
+              <p class="text-lg text-gray-600">Our chef's special recommendation</p>
+          </div>
+          
+          <div class="bg-teal-200 rounded-2xl overflow-hidden max-w-4xl mx-auto">
+              <div class="md:flex">
+                  <!-- Image Section -->
+                  <div class="md:w-1/2 ">
+                      <img src="images/Grilled-Lobster.jpg" 
+                           alt="Grilled Lobster Tail" 
+                           class="w-full h-64 md:h-full object-cover">
+                  </div>
+                  
+                  <!-- Content Section -->
+                  <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                      <div class="mb-6">
+                          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Grilled Lobster Tail</h3>
+                          <p class="text-gray-600 mb-4 leading-relaxed">
+                              Fresh Atlantic lobster tail grilled to perfection, served with drawn butter, 
+                              lemon wedges, and your choice of two premium sides. A true ocean delicacy 
+                              that melts in your mouth.
+                          </p>
+                          <div class="flex items-center justify-between mb-6">
+                              <span class="text-3xl font-bold text-teal-600">$35.99</span>
+                              <div class="flex items-center text-yellow-500">
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <span class="ml-2 text-gray-600 text-sm">(4.9/5)</span>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <button class="order-now-btn bg-gradient-to-r from-teal-500 to-blue-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-teal-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                          <i class="fas fa-shopping-cart mr-2"></i>Order Now
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </section>
+
+
+
+
+
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2">
+        <!-- Toast notifications will be added here -->
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

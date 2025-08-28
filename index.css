@@ -1,0 +1,20 @@
+.menu-text-bg {
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 20%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    background-image: url(images/Menu-text.svg);
+    background-position: 0 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px solid red; /* temporary border for debugging */
+}
+
+/* Ensure the parent container is relative */
+section.py-20.bg-white > div.max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8.flex {
+    position: relative;
+}

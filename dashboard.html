@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieExpress - Order Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50" style="display: none;">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-fish text-white"></i>
+                        </div>
+                        <h1 class="ml-3 text-2xl font-bold text-gray-800">Oyster Oasis</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-8">
+                    <a href="#menu" class="text-gray-700 hover:text-teal-500 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition duration-200">Menu</a>
+                    <a href="#about" class="text-gray-700 hover:text-teal-500 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition duration-200">About</a>
+                    <a href="#yourorders" class="text-gray-700 hover:text-teal-500 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition duration-200">Your Orders</a>
+                    <a href="#contact" class="text-gray-700 hover:text-teal-500 px-2 lg:px-3 py-2 text-xs lg:text-sm font-medium transition duration-200">Contact</a>
+                </nav>
+
+                <!-- Mobile Navigation Toggle -->
+                <button id="mobileMenuToggle" class="md:hidden p-2 text-gray-600 hover:text-teal-500 transition duration-200">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="cartToggle" class="relative p-2 text-gray-600 hover:text-teal-500 transition duration-200">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span id="cartCount" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span id="welcomeUser" class="text-sm text-gray-700">Welcome!</span>
+                        <button id="logoutBtn" type="button" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition duration-200">
+                            <i class="fas fa-sign-out-alt mr-1"></i>Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-500 to-teal-600 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Fresh Seafood Delights</h2>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">From the ocean to your plate, the finest catch awaits</p>
+            <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})" 
+                class="bg-white text-teal-500 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-200 transform hover:scale-105">
+                View Menu
+            </button>
+        </div>
+    </section>
+
+    <!-- Menu Section with Side Navigation -->
+    <section id="menu" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Menu</h2>
+                <p class="text-lg text-gray-600 mb-8">Choose from our delicious selection of fresh meals</p>
+                
+                <!-- Search Bar and Offers -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-6xl mx-auto">
+                    <!-- Search Bar -->
+                    <div class="w-full max-w-md">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                            <input type="text" id="menuSearch" placeholder="Search for dishes, ingredients..." 
+                                class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-sm">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <button id="clearSearch" class="text-gray-400 hover:text-gray-600 hidden">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Offers Section -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <!-- Offer 1 -->
+                        <div class="bg-gradient-to-r from-teal-500 to-blue-500 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 cursor-pointer">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-percentage text-xl"></i>
+                                <div>
+                                    <div class="text-sm font-bold">20% OFF</div>
+                                    <div class="text-xs opacity-90">Orders $25+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offer 2 -->
+                        <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 cursor-pointer">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-shipping-fast text-xl"></i>
+                                <div>
+                                    <div class="text-sm font-bold">FREE DELIVERY</div>
+                                    <div class="text-xs opacity-90">Orders $15+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Offer 3 -->
+                        <div class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 cursor-pointer">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-fish text-xl"></i>
+                                <div>
+                                    <div class="text-sm font-bold">CATCH OF THE DAY</div>
+                                    <div class="text-xs opacity-90">Fresh & Delicious</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Category Filter -->
+            <div class="lg:hidden mb-6">
+                <button id="mobileCategoryToggle" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-left flex items-center justify-between shadow-sm">
+                    <span class="flex items-center">
+                        <i class="fas fa-th-large mr-3 text-teal-500"></i>
+                        <span id="selectedCategoryText">All Items</span>
+                    </span>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                
+                <div id="mobileCategoryMenu" class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+                    <div class="py-2">
+                        <button class="category-tab active w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="all">
+                            <i class="fas fa-th-large mr-3 text-teal-500"></i>All Items
+                        </button>
+                        <button class="category-tab w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="appetizers">
+                            <i class="fas fa-concierge-bell mr-3 text-gray-600"></i>Appetizers
+                        </button>
+                        <button class="category-tab w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="main">
+                            <i class="fas fa-fish mr-3 text-gray-600"></i>Main Courses
+                        </button>
+                        <button class="category-tab w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="grill">
+                            <i class="fas fa-fire-alt mr-3 text-gray-600"></i>From the Grill
+                        </button>
+                        <button class="category-tab w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="sides">
+                            <i class="fas fa-leaf mr-3 text-gray-600"></i>Sides
+                        </button>
+                        <button class="category-tab w-full text-left px-4 py-3 hover:bg-gray-50 flex items-center" data-category="drinks">
+                            <i class="fas fa-wine-glass-alt mr-3 text-gray-600"></i>Drinks
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-8">
+                <!-- Side Navigation for Categories (Desktop) -->
+                <div class="hidden lg:block w-64 flex-shrink-0">
+                    <div class="bg-white rounded-lg shadow-lg p-6 sticky top-24">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Categories</h3>
+                        <nav class="space-y-2">
+                            <button class="category-tab active w-full text-left px-4 py-3 rounded-lg bg-teal-500 text-white font-medium transition duration-200 hover:bg-teal-600" data-category="all">
+                                <i class="fas fa-th-large mr-3"></i>All Items
+                            </button>
+                            <button class="category-tab w-full text-left px-4 py-3 rounded-lg bg-gray-50 text-gray-700 font-medium transition duration-200 hover:bg-gray-100" data-category="appetizers">
+                                <i class="fas fa-concierge-bell mr-3"></i>Appetizers
+                            </button>
+                            <button class="category-tab w-full text-left px-4 py-3 rounded-lg bg-gray-50 text-gray-700 font-medium transition duration-200 hover:bg-gray-100" data-category="main">
+                                <i class="fas fa-fish mr-3"></i>Main Courses
+                            </button>
+                            <button class="category-tab w-full text-left px-4 py-3 rounded-lg bg-gray-50 text-gray-700 font-medium transition duration-200 hover:bg-gray-100" data-category="grill">
+                                <i class="fas fa-fire-alt mr-3"></i>From the Grill
+                            </button>
+                            <button class="category-tab w-full text-left px-4 py-3 rounded-lg bg-gray-50 text-gray-700 font-medium transition duration-200 hover:bg-gray-100" data-category="sides">
+                                <i class="fas fa-leaf mr-3"></i>Sides
+                            </button>
+                            <button class="category-tab w-full text-left px-4 py-3 rounded-lg bg-gray-50 text-gray-700 font-medium transition duration-200 hover:bg-gray-100" data-category="drinks">
+                                <i class="fas fa-wine-glass-alt mr-3"></i>Drinks
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Menu Items Container -->
+                <div class="flex-1">
+
+            <!-- Loading Spinner -->
+            <div id="menuLoader" class="text-center py-12">
+                <i class="fas fa-spinner fa-spin text-4xl text-teal-500"></i>
+                <p class="mt-4 text-gray-600">Loading delicious menu items...</p>
+            </div>
+
+                    <!-- Menu Items Grid -->
+                    <div id="menuGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+                        <!-- Menu items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cartSidebar" class="fixed right-0 top-0 h-full w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex flex-col h-full">
+            <!-- Cart Header -->
+            <div class="flex items-center justify-between p-6 border-b">
+                <h3 class="text-xl font-bold text-gray-800">Your Order</h3>
+                <button id="closeCart" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto p-6">
+                <div id="cartItems" class="space-y-4">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div id="emptyCart" class="text-center py-12">
+                    <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                    <p class="text-gray-500">Your cart is empty</p>
+                    <p class="text-sm text-gray-400">Add some delicious items to get started!</p>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div id="cartSummary" class="border-t p-6 bg-gray-50">
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span>Delivery Fee:</span>
+                        <span id="deliveryFee">$2.99</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span>Tax:</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-lg border-t pt-2">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                </div>
+                <button id="checkoutBtn" disabled class="w-full bg-gray-300 text-gray-500 py-3 rounded-lg font-semibold cursor-not-allowed">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="p-6 border-b">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-2xl font-bold text-gray-800">Checkout</h3>
+                    <button id="closeCheckout" class="text-gray-500 hover:text-gray-700 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <form id="checkoutForm" class="p-6">
+                <!-- Delivery Information -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Delivery Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="customerName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="customerName" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label for="customerPhone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="customerPhone" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="customerEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="customerEmail" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="deliveryAddress" class="block text-sm font-medium text-gray-700 mb-2">Delivery Address</label>
+                            <textarea id="deliveryAddress" rows="3" required
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Payment Method</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="payment" value="cash" checked class="text-teal-500 focus:ring-teal-500">
+                            <span class="ml-3 flex items-center">
+                                <i class="fas fa-money-bill-wave text-green-500 mr-2"></i>
+                                Cash on Delivery
+                            </span>
+                        </label>
+                        <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <input type="radio" name="payment" value="card" class="text-teal-500 focus:ring-teal-500">
+                            <span class="ml-3 flex items-center">
+                                <i class="fas fa-credit-card text-blue-500 mr-2"></i>
+                                Credit/Debit Card
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="mb-8">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Order Summary</h4>
+                    <div id="checkoutSummary" class="bg-gray-50 p-4 rounded-lg">
+                        <!-- Order summary will be populated -->
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-blue-500 text-white py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-blue-600 transition duration-200 transform hover:scale-105">
+                    <i class="fas fa-check mr-2"></i>Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl max-w-md w-full mx-4 p-8 text-center">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-2xl text-green-500"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Order Placed Successfully!</h3>
+                <p class="text-gray-600">Your order <span id="orderNumber" class="font-semibold text-teal-500">#1234</span> has been received.</p>
+            </div>
+            
+            <div class="bg-teal-50 p-4 rounded-lg mb-6">
+                <p class="text-sm text-teal-800">
+                    <i class="fas fa-clock mr-2"></i>
+                    Estimated delivery time: <strong>30-45 minutes</strong>
+                </p>
+            </div>
+
+            <button onclick="location.reload()" class="w-full bg-gradient-to-r from-teal-500 to-blue-500 text-white py-3 rounded-lg font-semibold hover:from-teal-600 hover:to-blue-600 transition duration-200">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="fixed top-4 right-4 z-50 space-y-2">
+        <!-- Toast notifications will be added here -->
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
